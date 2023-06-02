@@ -15,7 +15,8 @@ jobs:
           path: |
               ~/.cache/pip
               ~/.platformio/.cache
-              key: ${{ runner.os }}-pio
+          key: ${{ runner.os }}-pio
+              
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
