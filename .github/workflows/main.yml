@@ -1,8 +1,12 @@
 name: PlatformIO CI
 on:
-  push:
-    branches:
-      - dev
+  issues:
+    types:
+      - opened
+# on:
+#   pull_request:
+#     branches:
+#       - dev
 jobs:
   build:
     runs-on: ubuntu-latest
