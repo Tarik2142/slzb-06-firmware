@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        example: [path/to/test/file.c, examples/file.ino, path/to/test/directory]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -28,4 +25,4 @@ jobs:
       - name: Build PlatformIO examples
         run: pio ci --board=<ID_1> --board=<ID_2> --board=<ID_N>
         env:
-          PLATFORMIO_CI_SRC: ${{ matrix.example }}
+          PLATFORMIO_CI_SRC: "src/main.cpp"
