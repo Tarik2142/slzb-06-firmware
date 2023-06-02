@@ -16,7 +16,7 @@ This repository contains latest firmware for ESP32 peripheral module of [SLZB-06
 
 <hr></hr>
 
-asdxc
+[![PlatformIO CI](https://github.com/Tarik2142/slzb-06-firmware/actions/workflows/main.yml/badge.svg?branch=dev&event=push)](https://github.com/Tarik2142/slzb-06-firmware/actions/workflows/main.yml)
 
 ## KEY FIRMWARE FEATURES
 - Change Ethernet/USB adapter mode through firmware or by physical button short press (Blue led On = USB mode, Blue led Off = Ethernet mode);
