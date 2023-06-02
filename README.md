@@ -16,7 +16,7 @@ This repository contains latest firmware for ESP32 peripheral module of [SLZB-06
 
 <hr></hr>
 
-
+asd
 
 ## KEY FIRMWARE FEATURES
 - Change Ethernet/USB adapter mode through firmware or by physical button short press (Blue led On = USB mode, Blue led Off = Ethernet mode);
