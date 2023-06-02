@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.0] 20230409 dev
 ### Added
+- test
 - Zigbee OTA updates
 - Zigbee firmare version on Status page
 - Added a link to the manual on About page
