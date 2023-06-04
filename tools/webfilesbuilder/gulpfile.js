@@ -24,15 +24,17 @@ function stylesConcat() {
 }
 
 function styles(cb) {
-    var source = "../../src/websrc/gzipped/css/" + "required.css.gz";
+    var source = "../../src/websrc/gzipped/css/";
     var destination = "../../src/webh/" + "required.css.gz.h";
- 
+	if(!fs.exists(source)){
+		fs.mkdirSync(source, { recursive: true });
+	}
     var wstream = fs.createWriteStream(destination);
     wstream.on('error', function (err) {
         console.log(err);
     });
  
-    var data = fs.readFileSync(source);
+    var data = fs.readFileSync(source + "required.css.gz");
  
     wstream.write('#define required_css_gz_len ' + data.length + '\n');
     wstream.write('const uint8_t required_css_gz[] PROGMEM = {')
