@@ -24,8 +24,6 @@ function createFolders(){
 	});
 }
 
-createFolders();
-
 function stylesConcat() {
     return gulp.src(['../../src/websrc/css/style.css', '../../src/websrc/css/bootstrap.min.css'])
         .pipe(concat({
@@ -205,10 +203,11 @@ function htmls() {
         }));
 }
 
+const dirsTask = gulp.series(createFolders);
 const styleTasks = gulp.series(stylesConcat, styles);
 const scriptTasks = gulp.series(scriptsgz, scripts);
 const fontTasks = gulp.series(fontgz, fonts);
 const imgTasks = gulp.series(imggz, imgs);
 const htmlTasks = gulp.series(htmlgz, htmls);
 
-exports.default = gulp.parallel(styleTasks, scriptTasks, fontTasks, imgTasks, htmlTasks);
+exports.default = gulp.series(dirsTask, styleTasks, scriptTasks, fontTasks, imgTasks, htmlTasks);
