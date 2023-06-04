@@ -66,7 +66,7 @@ function scripts() {
 			var filename = path.basename(file.path);
             var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
-                gutil.log(err);
+                console.log(err);
             });
 			var data = file.contents;
             wstream.write("#define " + filename.replace(/\.|-/g, "_") + "_len " + data.length + "\n");
@@ -100,7 +100,7 @@ function fonts() {
 			var filename = path.basename(file.path);
             var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
-                gutil.log(err);
+                console.log(err);
             });
 			var data = file.contents;
             wstream.write("#define " + filename.replace(/\.|-/g, "_") + "_len " + data.length + "\n");
@@ -134,7 +134,7 @@ function imgs() {
 			var filename = path.basename(file.path);
             var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
-                gutil.log(err);
+                console.log(err);
             });
 			var data = file.contents;
             wstream.write("#define " + filename.replace(/\.|-/g, "_") + "_len " + data.length + "\n");
@@ -168,7 +168,7 @@ function htmls() {
 			var filename = path.basename(file.path);
             var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
-                gutil.log(err);
+                console.log(err);
             });
 			var data = file.contents;
             wstream.write("#define " + filename.replace(/\.|-/g, "_") + "_len " + data.length + "\n");
