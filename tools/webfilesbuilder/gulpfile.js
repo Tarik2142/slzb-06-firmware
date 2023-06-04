@@ -9,11 +9,11 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 
 function createFolders(cb){
-	const webh = "../../src/webh";
-	const js = "../../src/websrc/gzipped/js";
-	const fonts = "../../src/websrc/gzipped/fonts";
-	const img = "../../src/websrc/gzipped/img";
-	const html = "../../src/websrc/gzipped/html";
+	const webh = "~/src/webh";
+	const js = "~/src/websrc/gzipped/js";
+	const fonts = "~/src/websrc/gzipped/fonts";
+	const img = "~/src/websrc/gzipped/img";
+	const html = "~/src/websrc/gzipped/html";
 	
 	const dirs = [webh, js, fonts, img, html];
 	
@@ -27,23 +27,23 @@ function createFolders(cb){
 }
 
 function stylesConcat() {
-    return gulp.src(['../../src/websrc/css/style.css', '../../src/websrc/css/bootstrap.min.css'])
+    return gulp.src(['~/src/websrc/css/style.css', '~/src/websrc/css/bootstrap.min.css'])
         .pipe(concat({
             path: 'required.css',
             stat: {
                 mode: 0666
             }
         }))
-        .pipe(gulp.dest('../../src/websrc/css/'))
+        .pipe(gulp.dest('~/src/websrc/css/'))
         .pipe(gzip({
             append: true
         }))
-        .pipe(gulp.dest('../../src/websrc/gzipped/css/'));
+        .pipe(gulp.dest('~/src/websrc/gzipped/css/'));
 }
 
 function styles(cb) {
-    var source = "../../src/websrc/gzipped/css/";
-    var destination = "../../src/webh/" + "required.css.gz.h";
+    var source = "~/src/websrc/gzipped/css/";
+    var destination = "~/src/webh/" + "required.css.gz.h";
     var wstream = fs.createWriteStream(destination);
     wstream.on('error', function (err) {
         console.log(err);
@@ -67,19 +67,19 @@ function styles(cb) {
 
 
 function scriptsgz() {
-	return gulp.src("../../src/websrc/js/*.*")
-        .pipe(gulp.dest("../../src/websrc/js/"))
+	return gulp.src("~/src/websrc/js/*.*")
+        .pipe(gulp.dest("~/src/websrc/js/"))
             .pipe(gzip({
                 append: true
             }))
-        .pipe(gulp.dest('../../src/websrc/gzipped/js/'));
+        .pipe(gulp.dest('~/src/websrc/gzipped/js/'));
 }
 
 function scripts() {
-    return gulp.src("../../src/websrc/gzipped/js/*.*")
+    return gulp.src("~/src/websrc/gzipped/js/*.*")
         .pipe(flatmap(function(stream, file) {
 			var filename = path.basename(file.path);
-            var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
+            var wstream = fs.createWriteStream("~/src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
                 console.log(err);
             });
@@ -101,19 +101,19 @@ function scripts() {
 }
 
 function fontgz() {
-	return gulp.src("../../src/websrc/fonts/*.*")
-        .pipe(gulp.dest("../../src/websrc/fonts/"))
+	return gulp.src("~/src/websrc/fonts/*.*")
+        .pipe(gulp.dest("~/src/websrc/fonts/"))
             .pipe(gzip({
                 append: true
             }))
-        .pipe(gulp.dest('../../src/websrc/gzipped/fonts/'));
+        .pipe(gulp.dest('~/src/websrc/gzipped/fonts/'));
 }
 
 function fonts() {
-    return gulp.src("../../src/websrc/gzipped/fonts/*.*")
+    return gulp.src("~/src/websrc/gzipped/fonts/*.*")
         .pipe(flatmap(function(stream, file) {
 			var filename = path.basename(file.path);
-            var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
+            var wstream = fs.createWriteStream("~/src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
                 console.log(err);
             });
@@ -135,19 +135,19 @@ function fonts() {
 }
 
 function imggz() {
-	return gulp.src("../../src/websrc/img/*.*")
-        .pipe(gulp.dest("../../src/websrc/img/"))
+	return gulp.src("~/src/websrc/img/*.*")
+        .pipe(gulp.dest("~/src/websrc/img/"))
             .pipe(gzip({
                 append: true
             }))
-        .pipe(gulp.dest('../../src/websrc/gzipped/img/'));
+        .pipe(gulp.dest('~/src/websrc/gzipped/img/'));
 }
 
 function imgs() {
-    return gulp.src("../../src/websrc/gzipped/img/*.*")
+    return gulp.src("~/src/websrc/gzipped/img/*.*")
         .pipe(flatmap(function(stream, file) {
 			var filename = path.basename(file.path);
-            var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
+            var wstream = fs.createWriteStream("~/src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
                 console.log(err);
             });
@@ -169,19 +169,19 @@ function imgs() {
 }
 
 function htmlgz() {
-	return gulp.src("../../src/websrc/html/*.*")
-        .pipe(gulp.dest("../../src/websrc/html/"))
+	return gulp.src("~/src/websrc/html/*.*")
+        .pipe(gulp.dest("~/src/websrc/html/"))
             .pipe(gzip({
                 append: true
             }))
-        .pipe(gulp.dest('../../src/websrc/gzipped/html/'));
+        .pipe(gulp.dest('~/src/websrc/gzipped/html/'));
 }
 
 function htmls() {
-    return gulp.src("../../src/websrc/gzipped/html/*.*")
+    return gulp.src("~/src/websrc/gzipped/html/*.*")
         .pipe(flatmap(function(stream, file) {
 			var filename = path.basename(file.path);
-            var wstream = fs.createWriteStream("../../src/webh/" + filename + ".h");
+            var wstream = fs.createWriteStream("~/src/webh/" + filename + ".h");
             wstream.on("error", function(err) {
                 console.log(err);
             });
