@@ -8,6 +8,24 @@ var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
+function createFolders(){
+	const webh = "../../src/webh/";
+	const js = "../../src/websrc/gzipped/js/";
+	const fonts = "../../src/websrc/gzipped/fonts/";
+	const img = "../../src/websrc/gzipped/img/";
+	const html = "../../src/websrc/gzipped/html/";
+	
+	const dirs = [webh, js, fonts, img, html];
+	
+	dirs.map((dir) => {
+		if(!fs.existsSync(dir)){
+			fs.mkdirSync(dir, { recursive: true });
+		}
+	});
+}
+
+createFolders();
+
 function stylesConcat() {
     return gulp.src(['../../src/websrc/css/style.css', '../../src/websrc/css/bootstrap.min.css'])
         .pipe(concat({
