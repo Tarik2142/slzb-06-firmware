@@ -17,7 +17,8 @@ function createFolders(cb){
 	
 	const dirs = [webh, js, fonts, img, html];
 	
-	for(let dir in dirs){
+	for(let index in dirs){
+		const dir = dirs[index];
 		if(!fs.existsSync(dir)){
 			fs.mkdirSync(dir, { recursive: true });
 			console.log(`mk dir: ${dir}`);
