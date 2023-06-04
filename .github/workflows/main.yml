@@ -34,7 +34,7 @@ jobs:
         working-directory: tools/webfilesbuilder
         run: |
             npm i
-            node gulp.js
+            sudo node gulp.js
         
       - name: Build SLZB-06 FW
         run: pio run --project-conf=platformio.ini
