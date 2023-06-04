@@ -9,11 +9,11 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 
 function createFolders(){
-	const webh = "../../src/webh/";
-	const js = "../../src/websrc/gzipped/js/";
-	const fonts = "../../src/websrc/gzipped/fonts/";
-	const img = "../../src/websrc/gzipped/img/";
-	const html = "../../src/websrc/gzipped/html/";
+	const webh = "../../src/webh";
+	const js = "../../src/websrc/gzipped/js";
+	const fonts = "../../src/websrc/gzipped/fonts";
+	const img = "../../src/websrc/gzipped/img";
+	const html = "../../src/websrc/gzipped/html";
 	
 	const dirs = [webh, js, fonts, img, html];
 	
@@ -42,9 +42,6 @@ function stylesConcat() {
 function styles(cb) {
     var source = "../../src/websrc/gzipped/css/";
     var destination = "../../src/webh/" + "required.css.gz.h";
-	if(!fs.existsSync(source)){
-		fs.mkdirSync(source, { recursive: true });
-	}
     var wstream = fs.createWriteStream(destination);
     wstream.on('error', function (err) {
         console.log(err);
