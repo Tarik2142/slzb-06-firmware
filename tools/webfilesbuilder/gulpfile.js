@@ -26,7 +26,7 @@ function stylesConcat() {
 function styles(cb) {
     var source = "../../src/websrc/gzipped/css/";
     var destination = "../../src/webh/" + "required.css.gz.h";
-	if(!fs.exists(source)){
+	if(!fs.existsSync(source)){
 		fs.mkdirSync(source, { recursive: true });
 	}
     var wstream = fs.createWriteStream(destination);
