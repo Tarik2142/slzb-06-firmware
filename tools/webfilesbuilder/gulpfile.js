@@ -9,11 +9,11 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 
 function createFolders(cb){
-	const webh = "../../src/webh";
-	const js = "../../src/websrc/gzipped/js";
-	const fonts = "../../src/websrc/gzipped/fonts";
-	const img = "../../src/websrc/gzipped/img";
-	const html = "../../src/websrc/gzipped/html";
+	const webh = "../../src/webh/";
+	const js = "../../src/websrc/gzipped/js/";
+	const fonts = "../../src/websrc/gzipped/fonts/";
+	const img = "../../src/websrc/gzipped/img/";
+	const html = "../../src/websrc/gzipped/html/";
 	
 	const dirs = [webh, js, fonts, img, html];
 	
@@ -22,6 +22,8 @@ function createFolders(cb){
 		if(!fs.existsSync(dir)){
 			fs.mkdirSync(dir, { recursive: true });
 			console.log(`mk dir: ${dir}`);
+		}else{
+			console.log(`dir already exists: ${dir}`);
 		}
 	}
 	
