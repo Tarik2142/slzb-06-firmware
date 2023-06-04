@@ -31,8 +31,8 @@ jobs:
         run: pip install --upgrade platformio
         
       - name: Compile web files
+        working-directory: tools/webfilesbuilder
         run: |
-            cd /home/runner/work/slzb-06-firmware/tools/webfilesbuilder
             npm i
             node gulp.js
         
