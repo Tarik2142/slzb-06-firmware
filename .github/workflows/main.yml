@@ -21,12 +21,21 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+          
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
           
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
         
-#       - name: Install platformIO libraries
-#         run: pio lib install
+      - name: Compile web files
+        run: |
+            cd /tools/webfilesbuilder
+            npm i
+            node gulp.js
         
       - name: Build SLZB-06 FW
         run: pio run --project-conf=platformio.ini
