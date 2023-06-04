@@ -32,7 +32,7 @@ jobs:
         
       - name: Compile web files
         run: |
-            cd ~/slzb-06-firmware/tools/webfilesbuilder
+            cd /home/runner/work/slzb-06-firmware/tools/webfilesbuilder
             npm i
             node gulp.js
         
