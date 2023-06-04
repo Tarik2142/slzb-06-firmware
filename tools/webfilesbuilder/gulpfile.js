@@ -8,7 +8,7 @@ var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
-function createFolders(){
+function createFolders(cb){
 	const webh = "../../src/webh";
 	const js = "../../src/websrc/gzipped/js";
 	const fonts = "../../src/websrc/gzipped/fonts";
@@ -17,11 +17,13 @@ function createFolders(){
 	
 	const dirs = [webh, js, fonts, img, html];
 	
-	dirs.map((dir) => {
+	for(dir in dirs){
 		if(!fs.existsSync(dir)){
 			fs.mkdirSync(dir, { recursive: true });
 		}
-	});
+	}
+	
+	cb();
 }
 
 function stylesConcat() {
